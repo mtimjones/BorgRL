@@ -1,0 +1,10 @@
+** 1) Send a combat drone to the academy.
+** 2) Send a combat drone to scavenge or mine.
+** 3) Send an extraction drone to an enemy.
+** 4) Send two drones to attack an enemy, expect when friendly is destroyed that the enemy will target
+   a new enemy.
+** 5) Send a Javelin to the exit (>).
+** 6) Send a Javelin to a friendly.
+7) Try to increase extract speed using an academy.
+8) Try to increase attack speed using an academy.
+9) Test new menu system for resources output.

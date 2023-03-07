@@ -1,0 +1,52 @@
+
+Movement:
+
+  Right-click in the local map to move the borg.
+
+  Left-click a drone (inventory or map) and right-click to move (or right-click an object on the map).
+
+Basic Commands
+
+  'p' - Tactical Pause/Unpause.
+  ' ' - Single step.
+  '?' - help
+  'l' - Map legend
+  'X' - Surrender.
+
+Actions:
+
+  Left-click a drone in the inventory window:
+
+    'h' - heal the drone (using resources).
+    'r' - recycle the drone (for resources).
+    
+  Left-click a friendly drone in the inventory window:
+
+    'd' - dock the drone into the Borg.
+
+  Press 'D' to dock all undocked combat drones.
+
+  Left-click on an object in the map:
+
+    'i' - contextual information.
+
+  Left-click an enemy drone in the map window:
+
+    'a' - assimilate (probabilistic).
+
+  Left-click a combat drone in the inventory window:
+
+    press 's' to morph into a scavenger drone.
+    press 'm' to morph into a miner drone.
+    press 'j' to morph into a javelin drone.
+
+Operations:
+
+  Left-click a scavenger drone in the inventory window (or map) and right-click a wreck to scavenge.
+
+  Left-click a miner drone in the inventory window (or map) and right-click a planet to mine.
+
+  Left-click a friendly drone in the inventory window (or map) and right-click the academy to upgrade.
+
+  Left-click a combat drone in the inventory window (or map) and right-click an enemy to attack.
+
