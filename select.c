@@ -121,7 +121,6 @@ static void assimilate_drone( )
                float p = get_assimilate_probability( PLAYER_ID, selected_object.entity_selected );
                if ( getSRand( ) < p )
                {
-                  add_message( "Assimilate attempt successful." );
                   assimilate( selected_object.entity_selected );
                }
                else

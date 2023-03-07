@@ -28,3 +28,5 @@
 28) When drones are docked when the targeted enemy is still alive, drones attack the Borg.
 ** 29) After an enemy kills a friendly, it continues to target it instead of choosing another target.
 ** 30) Scavenging only adds a message for final load.
+31) Docking a drone in the middle of scavenging causes it to dock, but it continues to scavenge...
+

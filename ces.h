@@ -17,7 +17,8 @@
 
 #define ASSIMILATE_COST     (  7 + get_level( ) * 4 )
 #define UPGRADE_COST        ( 15 )
-#define RANDOM_RES_UPGRADE  (  5 + getRand( 5 ) )
+#define INITIAL_PLAYER_RESOURCES  25
+#define RANDOM_RES_UPGRADE  ( 10 + getRand( 5 ) )
 #define DRONE_KILL_XP       (  3 + get_level( ) )
 
 #define MAX_DRONE_TYPES    5

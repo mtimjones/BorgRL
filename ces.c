@@ -591,7 +591,7 @@ void create_player_entity( )
     world.movement[ entity ].speed = PLAYER_MOVE_SPEED;
     world.movement[ entity ].state = PLAYER_MOVE_SPEED;
 
-    world.resources[ entity ].value = 18;
+    world.resources[ entity ].value = INITIAL_PLAYER_RESOURCES;
 
     world.render[ entity ].cell = '@';
     world.render[ entity ].attr = COLOR_PAIR( COLOR_BORG ) | A_BOLD;

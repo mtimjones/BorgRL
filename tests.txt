@@ -7,4 +7,6 @@
 ** 6) Send a Javelin to a friendly.
 7) Try to increase extract speed using an academy.
 8) Try to increase attack speed using an academy.
-9) Test new menu system for resources output.
+** 9) Test new menu system for resources output.
+10) Dock a drone before it finishes scavenging/mining.
+
