@@ -316,3 +316,68 @@ void javelin_behavior( int entity, int target_entity )
     }
 
 }
+
+void boss_behavior( int entity, int target_entity )
+{
+    static int drone_count = BOSS_DRONE_COUNT;
+    static int drone_wait  = BOSS_DRONE_WAIT_TIME;
+
+    (void) target_entity;
+
+    // FSM for the final boss.
+
+    switch( get_entity_behavior_state( entity ) )
+    {
+        case Dormant:
+            if ( entity_distance( entity, PLAYER_ID ) < 20 )
+            {
+                add_message( "Boss is awake, prepare for drone wave attack." );
+                set_entity_behavior_state( entity, Awake );
+            }
+            break;
+
+        case Awake:
+            if ( drone_wait-- == 0 )
+            {
+                int col, row, coff, roff;
+
+                drone_wait = BOSS_DRONE_WAIT_TIME;
+
+                // emit a drone
+
+                col = get_entity_col( entity );
+                row = get_entity_row( entity );
+
+                do
+                {
+                    coff = getRand( 6 ) - 3;
+                    roff = getRand( 4 ) - 2;
+                } while ( !is_cell_empty( col+coff, row+roff ) );
+
+                int level = get_max_level( );
+                int index = getRand( 5 ) - 1;
+
+                create_cedrone_entity( get_cdrone_type( get_level( ), index ), col+coff, row+roff, 0,
+                                        get_cd_hp( level, index ), get_cd_move_speed( level, index ),
+                                        get_cd_attack( level, index ), get_cd_attack_speed( level, index ),
+                                        get_cd_armor( level, index ), get_cd_hp( level, index ) );
+
+                if ( drone_count-- == 0 )
+                {
+                    add_message( "Boss is empty, Finish him." );
+                    set_entity_behavior_state( entity, Done );
+                }
+            }
+            break;
+
+        case Done:
+            // Now, just wait to die...
+            break;
+
+        default:
+            assert(0);
+            break;
+    }
+
+}
+

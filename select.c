@@ -1,6 +1,7 @@
 #include "headers.h"
 #include "ces.h"
 #include "stats.h"
+#include <ncurses.h>
 
 typedef enum
 {
@@ -151,6 +152,8 @@ static void assimilate_drone( )
 static void internal_dock_drone( int entity )
 {
     set_target_dock( entity, TYPE_ENTITY_DOCK, PLAYER_ID );
+
+    stop_entity_behavior( entity );
 
     // Transfer resources, if any.
     if ( get_entity_resources( entity ) )
@@ -325,7 +328,7 @@ static void morph_drone( char type )
    add_message( "Left-click a docked combat drone to morph." );
 }
 
-void process_command( char cmd )
+void process_command( chtype cmd )
 {
    bool cmd_processed = false;
 
@@ -334,6 +337,22 @@ void process_command( char cmd )
       case 27: // ESC
          set_context( "" );
          cmd_processed = true;
+         break;
+
+      case KEY_UP:
+         entity_move( 0, get_entity_col( 0 ), get_entity_row( 0 ) - 1 );
+         break;
+
+      case KEY_DOWN:
+         entity_move( 0, get_entity_col( 0 ), get_entity_row( 0 ) + 1 );
+         break;
+
+      case KEY_LEFT:
+         entity_move( 0, get_entity_col( 0 ) - 1, get_entity_row( 0 ) );
+         break;
+
+      case KEY_RIGHT:
+         entity_move( 0, get_entity_col( 0 ) + 1, get_entity_row( 0 ) );
          break;
 
       case '+':

@@ -23,10 +23,10 @@
 ** 23) Bug in selecting drone that is being morphed.
 24) Combat bug (target is not stateful).
 ** 25) Sending a combat drone to the Academy results in attack.
-26) For some reason, assimilated combat drones fight the borg at certain times.
+** 26) For some reason, assimilated combat drones fight the borg at certain times.
 ** 27) Add text (Space is collapsing behind you) and (Right-Click the > to use the gate).
-28) When drones are docked when the targeted enemy is still alive, drones attack the Borg.
+** 28) When drones are docked when the targeted enemy is still alive, drones attack the Borg.
 ** 29) After an enemy kills a friendly, it continues to target it instead of choosing another target.
 ** 30) Scavenging only adds a message for final load.
-31) Docking a drone in the middle of scavenging causes it to dock, but it continues to scavenge...
+** 31) Docking a drone in the middle of scavenging causes it to dock, but it continues to scavenge...
 

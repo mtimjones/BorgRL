@@ -15,13 +15,16 @@
 #define SCAV_SPEED            70
 #define MINE_SPEED            90
 
-#define ASSIMILATE_COST     (  7 + get_level( ) * 4 )
-#define UPGRADE_COST        ( 15 )
-#define INITIAL_PLAYER_RESOURCES  25
-#define RANDOM_RES_UPGRADE  ( 10 + getRand( 5 ) )
-#define DRONE_KILL_XP       (  3 + get_level( ) )
+#define BOSS_DRONE_COUNT       7
+#define BOSS_DRONE_WAIT_TIME 160
 
-#define MAX_DRONE_TYPES    5
+#define ASSIMILATE_COST         (  7 + get_level( ) * 4 )
+#define UPGRADE_COST            ( 15 )
+#define INITIAL_PLAYER_RESOURCES  25
+#define RANDOM_RES_UPGRADE      ( 10 + getRand( 5 ) )
+#define DRONE_KILL_XP           (  3 + get_level( ) )
+
+#define MAX_DRONE_TYPES            5
 
 typedef struct component_location
 {
@@ -144,9 +147,9 @@ typedef enum
    MovingTowardsTarget,
    AttackingTarget,
 
-   // Bomb
-
-   // Starbase Behavior (Final Boss)
+   // Boss Behavior
+   Awake,
+   Done,
 
 } behavior_state_t;
 
@@ -274,6 +277,10 @@ bool  is_entity_morphing( int entity );
 
 void  create_wreck_entity( int col, int row, int resources );
 void  demote_wreck_entity( int entity );
+
+void create_cedrone_entity( cdrone_type_t type, int col, int row,
+                            int resources, int health, int speed, int attack, int attack_speed,
+                            int armor, int xp );
 
 void  javelin_explosion( int entity );
 

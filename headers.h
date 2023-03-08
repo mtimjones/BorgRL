@@ -39,7 +39,7 @@ void win_update( );
 void win_refresh( );
 char win_wait( );
 void win_shutdown( );
-int  get_user_char( );
+chtype  get_user_char( );
 void get_mouse_pos( unsigned int *col, unsigned int *row );
 void set_context( char *line );
 void clear_context( void );
@@ -57,7 +57,7 @@ void create_explosion( int col, int row, int radius );
 void handle_user_input( void );
 int  get_mouse_col( void );
 int  get_mouse_row( void );
-void process_command( char );
+void process_command( chtype );
 
 //---------------------------------------------------------------
 // Game API

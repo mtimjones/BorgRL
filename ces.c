@@ -605,6 +605,48 @@ void create_player_entity( )
     return;
 }
 
+void create_boss_entity( )
+{
+    int entity;
+    int col, row;
+
+    entity = get_free_entity( );
+
+    // Create the player entity
+    world.id[ entity ] = entity;
+    world.mask[ entity ] = COMPONENT_LOCATION | COMPONENT_HEALTH | COMPONENT_BEHAVIOR | 
+                           COMPONENT_RENDER   | COMPONENT_ENEMY;
+
+    get_exit_location( &col, &row );
+    // TODO
+    world.location[ entity ].col = 240;
+//    world.location[ entity ].col = col - 2;
+    world.location[ entity ].row = row;
+
+    world.xp[ entity ].level = 4;
+
+    world.health[ entity ].value = 20;
+    world.health[ entity ].max_health = 20;
+
+    world.attack[ entity ].value = 0;
+    world.attack[ entity ].armor = 3;
+
+    world.resources[ entity ].value = 0;
+
+    world.render[ entity ].cell = 'B';
+    world.render[ entity ].attr = COLOR_PAIR( COLOR_E_ENTITY ) | A_BOLD;
+    world.render[ entity ].attr_dec = 0;
+
+    world.behavior[ entity ].state = Dormant;
+    world.behavior[ entity ].behavior = boss_behavior;
+
+    set_entity_name_str( entity, "Boss      " );
+
+    set_cell_entity( world.location[ entity ].col, world.location[ entity ].row, entity );
+
+    return;
+}
+
 int get_entity_col( int entity )
 {
     return world.location[ entity ].col;
@@ -947,6 +989,11 @@ void create_map_entities( void )
     if ( get_level( ) < get_max_level( ) )
     {
         create_exit_entity( );
+        create_boss_entity( );
+    }
+    else
+    {
+        create_boss_entity( );
     }
 
     return;

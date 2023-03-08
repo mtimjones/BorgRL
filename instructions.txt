@@ -1,7 +1,7 @@
 
 Movement:
 
-  Right-click in the local map to move the borg.
+  Right-click in the local map to move the Borg, or use the arrow keys to move the Borg.
 
   Left-click a drone (inventory or map) and right-click to move (or right-click an object on the map).
 

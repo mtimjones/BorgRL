@@ -259,7 +259,7 @@ void emit_legend( void )
    wattroff( legendwin, A_BOLD | COLOR_PAIR(COLOR_LABEL) );
    mvwprintw( legendwin, 2, 2, "@ - The Borg    | # - Gas Cloud  | A - Academy    | R - Raven");
    mvwprintw( legendwin, 3, 2, "* - Marker      | %% - Wreck      | S - Scavenger  | H - Hunter" );
-   mvwprintw( legendwin, 4, 2, ". - Trail       | P - Planet     | M - Miner      | K - Kestral" );
+   mvwprintw( legendwin, 4, 2, "B - Boss        | P - Planet     | M - Miner      | K - Kestral" );
    mvwprintw( legendwin, 5, 2, "~ - Void Space  | > - Star Gate  | N - Nova       | T - Tank" );
    mvwprintw( legendwin, 7, 23, "Press space to continue." );
    nodelay( stdscr, FALSE );
@@ -326,7 +326,7 @@ int emit_menu( char *title, char *selections[], int num )
    return result;
 }
 
-int get_user_char( void )
+chtype get_user_char( void )
 {
    int c = wgetch( stdscr );
 

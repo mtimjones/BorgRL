@@ -342,6 +342,18 @@ void get_exit_location( int *col, int *row )
 
 static void init_map_assets( void )
 {
+    bool cloud[ MAP_SEC_NROWS ][ MAP_SEC_NCOLS ] = {
+        { true, true, true, true, true, true, true, true, true },
+        { false, true, true, true, true, true, true, true, false },
+        { true, true, true, true, true, true, true, true, true } };
+
+    if ( get_level( ) == get_max_level( ) )
+    {
+        cloud[ 0 ][ 8 ] = false;
+        cloud[ 1 ][ 7 ] = false;
+        cloud[ 2 ][ 8 ] = false;
+    }
+
     reset_space( );
 
     // Place gas-clouds randomly in the level.
@@ -349,10 +361,9 @@ static void init_map_assets( void )
     {
         for ( int sector_col = 0 ; sector_col < MAP_SEC_NCOLS ; sector_col++ )
         {
-            // Don't place anything in the first an last col sector in the middle row sector
-            if ( !( (sector_row == 1) && ( (sector_col == 0) || (sector_col == MAP_MAX_NCOLS-1) ) ) )
+            if ( cloud[ sector_row ][ sector_col ] )
             {
-               place_gas_cloud( sector_col * MAPWIN_COL_SIZE, sector_row * MAPWIN_ROW_SIZE );
+                place_gas_cloud( sector_col * MAPWIN_COL_SIZE, sector_row * MAPWIN_ROW_SIZE );
             }
         }
 
