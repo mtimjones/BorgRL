@@ -319,8 +319,7 @@ void javelin_behavior( int entity, int target_entity )
 
 void boss_behavior( int entity, int target_entity )
 {
-    static int drone_count = BOSS_DRONE_COUNT;
-    static int drone_wait  = BOSS_DRONE_WAIT_TIME;
+    static int drone_wait  = 10;
 
     (void) target_entity;
 
@@ -329,7 +328,7 @@ void boss_behavior( int entity, int target_entity )
     switch( get_entity_behavior_state( entity ) )
     {
         case Dormant:
-            if ( entity_distance( entity, PLAYER_ID ) < 20 )
+            if ( entity_distance( entity, PLAYER_ID ) < 25 )
             {
                 add_message( "Boss is awake, prepare for drone wave attack." );
                 set_entity_behavior_state( entity, Awake );
@@ -354,7 +353,7 @@ void boss_behavior( int entity, int target_entity )
                     roff = getRand( 4 ) - 2;
                 } while ( !is_cell_empty( col+coff, row+roff ) );
 
-                int level = get_max_level( );
+                int level = get_max_level( ) - 1;
                 int index = getRand( 5 ) - 1;
 
                 create_cedrone_entity( get_cdrone_type( get_level( ), index ), col+coff, row+roff, 0,
@@ -362,11 +361,6 @@ void boss_behavior( int entity, int target_entity )
                                         get_cd_attack( level, index ), get_cd_attack_speed( level, index ),
                                         get_cd_armor( level, index ), get_cd_hp( level, index ) );
 
-                if ( drone_count-- == 0 )
-                {
-                    add_message( "Boss is empty, Finish him." );
-                    set_entity_behavior_state( entity, Done );
-                }
             }
             break;
 

@@ -69,6 +69,7 @@ typedef enum
     Surrendered = 1,
     Killed      = 2,
     VoidSpace   = 3,
+    BossKilled  = 4,
 
 } death_type_t;
 

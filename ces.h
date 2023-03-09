@@ -15,8 +15,7 @@
 #define SCAV_SPEED            70
 #define MINE_SPEED            90
 
-#define BOSS_DRONE_COUNT       7
-#define BOSS_DRONE_WAIT_TIME 160
+#define BOSS_DRONE_WAIT_TIME 170
 
 #define ASSIMILATE_COST         (  7 + get_level( ) * 4 )
 #define UPGRADE_COST            ( 15 )
@@ -206,14 +205,16 @@ typedef enum
     COMPONENT_PLAYER     = 1 <<  9, // Marker
     COMPONENT_FRIENDLY   = 1 << 10, // Marker
     COMPONENT_ENEMY      = 1 << 11, // Marker
+    COMPONENT_BOSS       = 1 << 12, // Marker
 
-    COMPONENT_DOCKED     = 1 << 12, // Marker
-    COMPONENT_CDRONE     = 1 << 13, // Marker / Combat Drone
-    COMPONENT_EDRONE     = 1 << 14, // Marker / Extractor Drone (Scavenger, Miner)
+    COMPONENT_DOCKED     = 1 << 13, // Marker
+    COMPONENT_CDRONE     = 1 << 14, // Marker / Combat Drone
+    COMPONENT_EDRONE     = 1 << 15, // Marker / Extractor Drone (Scavenger, Miner)
 
-    COMPONENT_WRECK      = 1 << 15, // Marker
-    COMPONENT_PLANET     = 1 << 16, // Marker
-    COMPONENT_ACADEMY    = 1 << 17, // Marker
+    COMPONENT_WRECK      = 1 << 16, // Marker
+    COMPONENT_PLANET     = 1 << 17, // Marker
+    COMPONENT_ACADEMY    = 1 << 18, // Marker
+
 
 } Component;
 

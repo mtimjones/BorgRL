@@ -335,6 +335,11 @@ char *side( int entity )
     return "Enemy";
 }
 
+bool is_entity_boss( int entity )
+{
+    return ( world.mask[ entity ] & COMPONENT_BOSS );
+}
+
 void damage( int entity, int target_entity, int damage )
 {
     if ( is_friendly( target_entity ) ) 
@@ -360,6 +365,11 @@ void damage( int entity, int target_entity, int damage )
         if ( target_entity == PLAYER_ID )
         {
             set_death_type( Killed );
+            end_game( );
+        }
+        else if ( is_entity_boss( target_entity ) )
+        {
+            set_death_type( BossKilled );
             end_game( );
         }
         else
@@ -615,12 +625,10 @@ void create_boss_entity( )
     // Create the player entity
     world.id[ entity ] = entity;
     world.mask[ entity ] = COMPONENT_LOCATION | COMPONENT_HEALTH | COMPONENT_BEHAVIOR | 
-                           COMPONENT_RENDER   | COMPONENT_ENEMY;
+                           COMPONENT_RENDER   | COMPONENT_ENEMY  | COMPONENT_BOSS;
 
     get_exit_location( &col, &row );
-    // TODO
-    world.location[ entity ].col = 240;
-//    world.location[ entity ].col = col - 2;
+    world.location[ entity ].col = col - 2;
     world.location[ entity ].row = row;
 
     world.xp[ entity ].level = 4;
@@ -989,7 +997,6 @@ void create_map_entities( void )
     if ( get_level( ) < get_max_level( ) )
     {
         create_exit_entity( );
-        create_boss_entity( );
     }
     else
     {
@@ -1499,6 +1506,10 @@ void emit_map_context_info( int entity )
                     (int)( p * 100 ) );
 
     }
+    else if ( world.mask[ entity ] & COMPONENT_BOSS )
+    {
+        snprintf( line, CONTEXTWIN_COL_SIZE, "Boss containing drone swarm." );
+    }
     else
     {
         strncpy( line, "Select an object in the map and press i for information.", CONTEXTWIN_COL_SIZE );
@@ -1588,7 +1599,9 @@ void endgame_emit( void )
         case VoidSpace:
             printf( "\nThe Borg has been trapped in void space.\n\n" );
             break;
-
+        case BossKilled:
+            printf( "\nThe boss is dead.  You won.\n\n" );
+            break;
         default:
             assert(0);
             break;
@@ -1783,7 +1796,7 @@ void morph_system( void )
                }
                else if ( ch == 'j' )
                {
-                  create_javelin_entity( entity, 3, 8, 6, 2 );
+                  create_javelin_entity( entity, 5, 8, 6, 2 );
                }
                else assert(0);
             }

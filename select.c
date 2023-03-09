@@ -119,6 +119,7 @@ static void assimilate_drone( )
                set_entity_resources( PLAYER_ID, get_entity_resources( PLAYER_ID ) - resources_needed );
 
                // Probabilistic check of assimilation...
+//TODO: Emit add_message
                float p = get_assimilate_probability( PLAYER_ID, selected_object.entity_selected );
                if ( getSRand( ) < p )
                {
