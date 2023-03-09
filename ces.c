@@ -1508,7 +1508,7 @@ void emit_map_context_info( int entity )
     }
     else if ( world.mask[ entity ] & COMPONENT_BOSS )
     {
-        snprintf( line, CONTEXTWIN_COL_SIZE, "Boss containing drone swarm." );
+        snprintf( line, CONTEXTWIN_COL_SIZE, "Boss containing drone swarm (HP %d).", get_entity_resources( entity ) );
     }
     else
     {
