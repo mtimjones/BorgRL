@@ -33,12 +33,12 @@ The player must fight and kill the Boss.  The Boss emits combat drones to attack
 
 ### Actions:
 
-#### Left-click a drone in the inventory window:
+#### Left-click a docked drone in the inventory window:
 
 - heal the drone (using resources). 'h'
 - recycle the drone (for resources). 'r'
     
-#### Left-click a friendly drone in the inventory window:
+#### Left-click a friendly undocked drone in the inventory window:
 
 - dock the drone into the Borg. 'd'
 
@@ -52,7 +52,7 @@ The player must fight and kill the Boss.  The Boss emits combat drones to attack
 
 - assimilate (probabilistic). 'a'
 
-#### Left-click a combat drone in the inventory window:
+#### Left-click a docked combat drone in the inventory window:
 
 - press 's' to morph into a scavenger drone. 's'
 - press 'm' to morph into a miner drone. 'm'
