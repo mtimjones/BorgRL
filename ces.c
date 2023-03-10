@@ -1449,7 +1449,7 @@ void receive_random_upgrade( void )
 {
     add_message( "You've received a random upgrade." );
 
-    int upgrade = getRand( 3 ) - 1;
+    int upgrade = getRand( 3 );
 
     if ( upgrade == 0 )
     {
@@ -1506,7 +1506,7 @@ void emit_map_context_info( int entity )
     }
     else if ( world.mask[ entity ] & COMPONENT_BOSS )
     {
-        snprintf( line, CONTEXTWIN_COL_SIZE, "Boss containing drone swarm (HP %d).", get_entity_resources( entity ) );
+        snprintf( line, CONTEXTWIN_COL_SIZE, "Boss containing drone swarm (HP %d).", get_entity_health( entity ) );
     }
     else
     {

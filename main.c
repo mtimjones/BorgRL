@@ -18,7 +18,7 @@ int main( int argc, char *argv[] )
    if ( ( ts.ws_row < 42 ) || ( ts.ws_col < 115 ) )
    {
       printf( "Please resize your window to 115 cols, 51 rows (currently %d/%d)\n", ts.ws_col, ts.ws_row );
-//      exit(-1);
+      exit(-1);
    }
 
    initLog( "log.txt", INFO );
