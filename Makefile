@@ -1,7 +1,7 @@
 # Makefile for 7drl 2023 ideas
 
 CC=gcc
-CFLAGS=-std=c18 -Wall -Werror -Wextra
+CFLAGS=-std=c18 -Wall -Werror -Wextra -g
 LIBS= -lncurses -lm
 
 DEPS = headers.h ces.h logapi.h behaviors.h stats.h

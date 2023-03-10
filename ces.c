@@ -1398,8 +1398,6 @@ void academy_cdrone_upgrade( int entity )
 }
 
 
-// TODO: Based upon drone type, focus updates that matter.
-
 void get_random_academy_upgrade( int entity, bool dec_resources )
 {
     int extra = (int)( getSRand( ) >= 0.97 );
@@ -1409,7 +1407,7 @@ void get_random_academy_upgrade( int entity, bool dec_resources )
 
     while ( !taken )
     {
-        int upgrade = getRand( 3 );
+        int upgrade = getRand( 3 ) - 1;
 
         switch( upgrade )
         {
@@ -1451,14 +1449,14 @@ void receive_random_upgrade( void )
 {
     add_message( "You've received a random upgrade." );
 
-    int upgrade = getRand( 3 );
+    int upgrade = getRand( 3 ) - 1;
 
-    if ( upgrade == 1 )
+    if ( upgrade == 0 )
     {
         create_edrone_entity( get_free_entity( ), Scavenger, 2, 10, 3, 70 );
         add_message( "   An extra scavenger drone." );
     }
-    else if ( upgrade == 2 )
+    else if ( upgrade == 1 )
     {
         create_edrone_entity( get_free_entity( ), Miner, 3, 20, 4, 90 );
         add_message( "   An extra miner drone." );
