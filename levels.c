@@ -40,7 +40,7 @@ typedef struct
 const levels_t levels[] = {
 //    W   WR  P   PR   A  GCR GCL GSP GSI GSF
 //      Type    CD CDT CDR CDH CAS CMS 
-    { 10,  5,  0,  0,  1,  20, 80,  4, 10,  7,
+    {  8,  5,  0,  0,  1,  20, 80,  4, 10,  7,
     { { Nova,    6,  1,  1,  2, 60, 10 },
       { Raven,   3,  1,  2,  2, 55,  9 },
       { Hunter,  0,  0,  0,  0,  0,  8 },
