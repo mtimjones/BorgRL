@@ -354,7 +354,7 @@ void boss_behavior( int entity, int target_entity )
                 } while ( !is_cell_empty( col+coff, row+roff ) );
 
                 int level = get_max_level( ) - 1;
-                int index = getRand( 5 ) - 1;
+                int index = getRand( 5 );
 
                 create_cedrone_entity( get_cdrone_type( get_level( ), index ), col+coff, row+roff, 0,
                                         get_cd_hp( level, index ), get_cd_move_speed( level, index ),

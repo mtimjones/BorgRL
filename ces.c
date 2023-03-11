@@ -1407,7 +1407,7 @@ void get_random_academy_upgrade( int entity, bool dec_resources )
 
     while ( !taken )
     {
-        int upgrade = getRand( 3 ) - 1;
+        int upgrade = getRand( 3 );
 
         switch( upgrade )
         {
