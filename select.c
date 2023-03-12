@@ -340,19 +340,31 @@ void process_command( chtype cmd )
          break;
 
       case KEY_UP:
-         entity_move( 0, get_entity_col( 0 ), get_entity_row( 0 ) - 1 );
+         if ( !get_pause_state( ) )
+         {
+            entity_move( 0, get_entity_col( 0 ), get_entity_row( 0 ) - 1 );
+         }
          break;
 
       case KEY_DOWN:
-         entity_move( 0, get_entity_col( 0 ), get_entity_row( 0 ) + 1 );
+         if ( !get_pause_state( ) )
+         {
+            entity_move( 0, get_entity_col( 0 ), get_entity_row( 0 ) + 1 );
+         }
          break;
 
       case KEY_LEFT:
-         entity_move( 0, get_entity_col( 0 ) - 1, get_entity_row( 0 ) );
+         if ( !get_pause_state( ) )
+         {
+            entity_move( 0, get_entity_col( 0 ) - 1, get_entity_row( 0 ) );
+         }
          break;
 
       case KEY_RIGHT:
-         entity_move( 0, get_entity_col( 0 ) + 1, get_entity_row( 0 ) );
+         if ( !get_pause_state( ) )
+         {
+            entity_move( 0, get_entity_col( 0 ) + 1, get_entity_row( 0 ) );
+         }
          break;
 
       case '+':

@@ -275,6 +275,7 @@ bool  is_entity_docked( int entity );
 bool  is_entity_friendly( int entity );
 bool  is_entity_enemy( int entity );
 bool  is_entity_morphing( int entity );
+bool  is_entity_javelin( int entity );
 
 void  create_wreck_entity( int col, int row, int resources );
 void  demote_wreck_entity( int entity );

@@ -387,8 +387,11 @@ void damage( int entity, int target_entity, int damage )
             destroy_entity( target_entity );
             clear_entity_target( entity );
 
-            create_wreck_entity( col, row, ( get_wreck_resources( get_level( ) ) + 2 ) );
-            add_xp( entity, DRONE_KILL_XP );
+            if ( !is_entity_javelin( target_entity ) )
+            {
+                create_wreck_entity( col, row, ( get_wreck_resources( get_level( ) ) + 2 ) );
+                add_xp( entity, DRONE_KILL_XP );
+            }
 
             clear_target_entities( target_entity );
 
@@ -472,6 +475,11 @@ bool is_entity_miner( int entity )
 bool is_entity_scavenger( int entity )
 {
     return ( world.edrone[ entity ].type == Scavenger );
+}
+
+bool is_entity_javelin( int entity )
+{
+    return ( world.cdrone[ entity ].type == Javelin );
 }
 
 void start_entity_behavior( int entity )
