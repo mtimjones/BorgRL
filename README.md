@@ -2,6 +2,8 @@
 
 BorgRL is a Borg Roguelike.  The player is the Borg and travels across space, fighting enemies scavenging resources, mining planets, assimilating drones, healing and recycling drones, and converting resources into upgrades for its evolving fleet of drones.  The player explores the sector and uses the star gate to jump to the next.  The player must optimize resources to heal drones assimilate or kill enemy drones, and ultimately kill the final boss to win.
 
+<img src="https://imgur.com/gallery/eHpn2U1"/>
+
 ## Features
 - Permadeath
 - Procedurally generated sectors (random walk with cellular automata smoothing)
